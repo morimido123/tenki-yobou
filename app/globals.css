@@ -197,11 +197,11 @@ body {
   }
   50% {
     opacity: 1;
-    transform: scale(1.1) rotate(-20deg) translateY(1px);
+    transform: scale(1.1) rotate(-20deg) translateY(0px);
   }
   100% {
     opacity: 1;
-    transform: scale(1) rotate(0deg) translateY(2px);
+    transform: scale(1) rotate(0deg) translateY(0px);
   }
 }
 
@@ -320,11 +320,11 @@ body {
   }
   50% {
     opacity: 1;
-    transform: scale(1.1) rotate(-20deg) translateY(1px);
+    transform: scale(1.1) rotate(-20deg) translateY(0px);
   }
   100% {
     opacity: 1;
-    transform: scale(1) rotate(0deg) translateY(2px);
+    transform: scale(1) rotate(0deg) translateY(0px);
   }
 }
 
