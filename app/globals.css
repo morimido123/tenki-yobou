@@ -268,7 +268,11 @@ body {
 
 .title-char-fade-in {
   animation: titleCharFadeIn 0.8s ease-out;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
 .title-icon-fade-in {
@@ -291,7 +295,11 @@ body {
   transition: all 1.2s ease-in-out;
   opacity: 1;
   transform: scale(1) rotate(0deg);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
 .title-icon-transition.show {
@@ -301,7 +309,8 @@ body {
 
 /* Weather icon specific positioning */
 .title-icon-transition svg {
-  transform: translateY(2px);
+  transform: translateY(0px);
+  line-height: 1;
 }
 
 @keyframes titleIconAnimation {

@@ -611,16 +611,9 @@ export default function WeatherApp() {
       // 実際の日付から曜日を取得
       const date = new Date(day.dt * 1000)
       
-      let dayLabel = ''
-      if (index === 0) {
-        dayLabel = '今日'
-      } else if (index === 1) {
-        dayLabel = '明日'
-      } else {
-        // 曜日を日本語で取得
-        const weekdays = ['日', '月', '火', '水', '木', '金', '土']
-        dayLabel = weekdays[date.getDay()]
-      }
+      // 曜日を日本語で取得
+      const weekdays = ['日', '月', '火', '水', '木', '金', '土']
+      const dayLabel = weekdays[date.getDay()]
       
       return {
         day: dayLabel,
@@ -891,7 +884,7 @@ export default function WeatherApp() {
                 </>
               ) : (
                 <>
-                  <MapPin className="w-4 h-4 animate-bounce text-red-500" />
+              <MapPin className="w-4 h-4 animate-bounce text-red-500" />
                   <span>現在の都道府県を取得</span>
                 </>
               )}
@@ -933,53 +926,53 @@ export default function WeatherApp() {
 
         {/* 今日の天気カード */}
         {currentWeather && (
-          <Card className={getWeatherCardBackground()}>
-            <CardHeader className="text-center pb-4">
-              <CardTitle className="text-xl font-light text-gray-800">{currentWeather.location}</CardTitle>
-              <CardDescription className="text-sm font-light">{currentWeather.date}</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="text-center space-y-2">
+        <Card className={getWeatherCardBackground()}>
+          <CardHeader className="text-center pb-4">
+            <CardTitle className="text-xl font-light text-gray-800">{currentWeather.location}</CardTitle>
+            <CardDescription className="text-sm font-light">{currentWeather.date}</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="text-center space-y-2">
                 <div className="flex justify-center">{getWeatherIconComponent(currentWeather.icon)}</div>
-                <h3 className="text-lg font-light text-gray-700">{currentWeather.condition}</h3>
-                <p className="text-sm text-gray-600 font-light max-w-md mx-auto">{currentWeather.description}</p>
-              </div>
+              <h3 className="text-lg font-light text-gray-700">{currentWeather.condition}</h3>
+              <p className="text-sm text-gray-600 font-light max-w-md mx-auto">{currentWeather.description}</p>
+            </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div className="space-y-1">
-                  <div className="flex items-center justify-center gap-1">
-                    <Thermometer className="w-4 h-4 text-red-500" />
-                    <span className="text-xs text-gray-500 font-light">気温</span>
-                  </div>
-                  <div className="text-lg font-light">{currentWeather.temperature}°C</div>
-                  <div className="text-xs text-gray-500 font-light">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              <div className="space-y-1">
+                <div className="flex items-center justify-center gap-1">
+                  <Thermometer className="w-4 h-4 text-red-500" />
+                  <span className="text-xs text-gray-500 font-light">気温</span>
+                </div>
+                <div className="text-lg font-light">{currentWeather.temperature}°C</div>
+                <div className="text-xs text-gray-500 font-light">
                     <span className="text-orange-500">{currentWeather.maxTemp}°</span> / <span className="text-cyan-500">{currentWeather.minTemp}°</span>
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center justify-center gap-1">
-                    <Droplets className="w-4 h-4 text-blue-500" />
-                    <span className="text-xs text-gray-500 font-light">湿度</span>
-                  </div>
-                  <div className="text-lg font-light">{currentWeather.humidity}%</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center justify-center gap-1">
-                    <Sun className="w-4 h-4 text-gray-500" />
-                    <span className="text-xs text-gray-500 font-light">風速</span>
-                  </div>
-                  <div className="text-lg font-light">{currentWeather.windSpeed}km/h</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center justify-center gap-1">
-                    <Eye className="w-4 h-4 text-purple-500" />
-                    <span className="text-xs text-gray-500 font-light">体感</span>
-                  </div>
-                  <div className="text-lg font-light">{currentWeather.feelsLike}°C</div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+              <div className="space-y-1">
+                <div className="flex items-center justify-center gap-1">
+                  <Droplets className="w-4 h-4 text-blue-500" />
+                  <span className="text-xs text-gray-500 font-light">湿度</span>
+                </div>
+                <div className="text-lg font-light">{currentWeather.humidity}%</div>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center justify-center gap-1">
+                    <Sun className="w-4 h-4 text-gray-500" />
+                  <span className="text-xs text-gray-500 font-light">風速</span>
+                </div>
+                <div className="text-lg font-light">{currentWeather.windSpeed}km/h</div>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center justify-center gap-1">
+                  <Eye className="w-4 h-4 text-purple-500" />
+                  <span className="text-xs text-gray-500 font-light">体感</span>
+                </div>
+                <div className="text-lg font-light">{currentWeather.feelsLike}°C</div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
         )}
 
         {/* 今日のアドバイスカード - スタイリッシュアニメーション */}
@@ -1028,56 +1021,56 @@ export default function WeatherApp() {
 
         {/* 時間帯別天気予報 */}
         {hourlyForecast.length > 0 && (
-          <Card className="backdrop-blur-sm bg-white/80 border-0 shadow-lg overflow-hidden">
-            <CardHeader>
-              <CardTitle className="text-lg font-light text-gray-800">時間別予報</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="overflow-x-auto">
-                <div className="flex gap-3 pb-2 min-w-max">
-                  {hourlyForecast.map((hour, index) => (
-                    <div key={index} className="hourly-item flex-shrink-0 text-center space-y-2 min-w-[70px]">
-                      <div className="text-xs font-light text-gray-600">{hour.time}</div>
-                      <div className="flex justify-center">
+        <Card className="backdrop-blur-sm bg-white/80 border-0 shadow-lg overflow-hidden">
+          <CardHeader>
+            <CardTitle className="text-lg font-light text-gray-800">時間別予報</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="overflow-x-auto">
+              <div className="flex gap-3 pb-2 min-w-max">
+                {hourlyForecast.map((hour, index) => (
+                  <div key={index} className="hourly-item flex-shrink-0 text-center space-y-2 min-w-[70px]">
+                    <div className="text-xs font-light text-gray-600">{hour.time}</div>
+                    <div className="flex justify-center">
                         <div className="w-6 h-6 flex items-center justify-center">
                           {getSmallWeatherIconComponent(hour.icon)}
                         </div>
-                      </div>
-                      <div className="text-sm font-light">{hour.temp}°C</div>
-                      <div className="text-xs text-blue-600 font-light">{hour.precipitation}%</div>
                     </div>
-                  ))}
-                </div>
+                    <div className="text-sm font-light">{hour.temp}°C</div>
+                    <div className="text-xs text-blue-600 font-light">{hour.precipitation}%</div>
+                  </div>
+                ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </CardContent>
+        </Card>
         )}
 
         {/* 週間予報 */}
         {weeklyForecast.length > 0 && (
-          <Card className="backdrop-blur-sm bg-white/80 border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-lg font-light text-gray-800">週間予報</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-7 gap-2">
-                {weeklyForecast.map((day, index) => (
-                  <div key={index} className="text-center space-y-2 p-2">
-                    <div className="text-xs font-light text-gray-600">{day.day}</div>
-                    <div className="flex justify-center">
+        <Card className="backdrop-blur-sm bg-white/80 border-0 shadow-lg">
+          <CardHeader>
+            <CardTitle className="text-lg font-light text-gray-800">週間予報</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-7 gap-2">
+              {weeklyForecast.map((day, index) => (
+                <div key={index} className="text-center space-y-2 p-2">
+                  <div className="text-xs font-light text-gray-600">{day.day}</div>
+                  <div className="flex justify-center">
                       <div className="w-6 h-6 flex items-center justify-center">
                         {getSmallWeatherIconComponent(day.icon)}
                       </div>
-                    </div>
-                    <div className="space-y-1">
+                  </div>
+                  <div className="space-y-1">
                       <div className="text-xs font-light text-orange-500">{day.maxTemp}°</div>
                       <div className="text-xs font-light text-cyan-500">{day.minTemp}°</div>
-                    </div>
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
         )}
 
         {/* フッター */}
